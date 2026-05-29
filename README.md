@@ -244,8 +244,7 @@ npm run test:coverage # Run with coverage report
 2. **Multi-day forecast** — Extend `weatherForecast` to accept a `days: Int` argument and return an array of daily summaries.
 3. **More activities** — The `ActivityRankingService` is designed to be extended: add a new scorer method and add the enum value to the schema.
 4. **Subscription for live weather** — Apollo Subscriptions + WebSocket to push weather updates to clients.
-5. **Structured logging** — Replace `console.*` with `pino` for structured JSON logs with request IDs.
-6. **OpenAPI / REST adapter** — For consumers that can't use GraphQL, expose a thin REST layer that calls the same service layer.
+5. **OpenAPI / REST adapter** — For consumers that can't use GraphQL, expose a thin REST layer that calls the same service layer.
 
 ---
 
@@ -253,8 +252,6 @@ npm run test:coverage # Run with coverage report
 
 Claude (Anthropic) was used to:
 
-- **Scaffold boilerplate** — initial Express + Apollo wiring, tsconfig, jest config. Output was reviewed and adjusted (e.g. removing an incorrect `@expressjs/body-parser` package, fixing import paths).
+- **Scaffold boilerplate** — initial Express + Apollo wiring, tsconfig, jest config.
 - **Scoring rubric design** — drafted initial activity scoring weights; manually calibrated thresholds after reasoning about real-world conditions (e.g. skiing needs sub-zero *and* snowfall, not just one).
 - **Test case generation** — AI suggested a comprehensive set of edge cases (empty query, single-entry arrays, HTTP 500s). Each was reviewed for relevance before inclusion.
-
-Judgment applied: AI output was treated as a first draft. Architecture decisions (layering, DI pattern, pure function isolation for the scorer) were made deliberately and not just accepted from suggestions.
